@@ -32,7 +32,7 @@ namespace DisasterAlleviationFoundation.Pages
             donateGoods.goods_description = Request.Form["goodsDescription"];
             donateGoods.goods_date = Request.Form["goodsDate"];
             donateGoods.goods_category = Request.Form["goodsCategory"];
-            donateGoods.goods_activedisaster = Request.Form["goodsActivedisaster"];
+            
             donateGoods.goods_donorname = Request.Form["goodsDonorname"];
 
             try
@@ -43,7 +43,7 @@ namespace DisasterAlleviationFoundation.Pages
                 {
 
                     connect.Open();
-                    string commandText = "INSERT INTO GOODSDONATIONS VALUES (@goodsTitle,@goodsNo,@goodsDescription,@goodsDate,@goodsCategory,@goodsActivedisaster,@goodsDonorname)";
+                    string commandText = "INSERT INTO GOODSDONATIONS VALUES (@goodsTitle,@goodsNo,@goodsDescription,@goodsDate,@goodsCategory,@goodsDonorname)";
                     using (SqlCommand command = new SqlCommand(commandText, connect))
                     {
 
@@ -52,7 +52,7 @@ namespace DisasterAlleviationFoundation.Pages
                         command.Parameters.AddWithValue("@goodsDescription", donateGoods.goods_description);
                         command.Parameters.AddWithValue("@goodsDate", donateGoods.goods_date);
                         command.Parameters.AddWithValue("@goodsCategory", donateGoods.goods_category);
-                        command.Parameters.AddWithValue("@goodsActivedisaster", donateGoods.goods_activedisaster);
+                     
                         command.Parameters.AddWithValue("@goodsDonorname", donateGoods.goods_donorname);
 
 

@@ -33,14 +33,16 @@ namespace DisasterAlleviationFoundation.Pages
 
                        PurchaseMoney = (int)command.ExecuteScalar();
 
-                    availableFunds = AvailableMoney - PurchaseMoney;
-                
+                    availableFunds = (AvailableMoney - PurchaseMoney);
+         
+
             }
             catch (Exception calException)
             {
                 Console.WriteLine(calException);
             }
             return availableFunds;
-                }
+
+        }
     }
 }

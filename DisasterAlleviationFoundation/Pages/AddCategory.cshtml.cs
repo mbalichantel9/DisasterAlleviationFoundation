@@ -51,7 +51,7 @@ namespace DisasterAlleviationFoundation.Pages
 
                     }
                 }
-                Response.Redirect("/Index");
+                Response.Redirect("/AdminIndex");
 
 
             }

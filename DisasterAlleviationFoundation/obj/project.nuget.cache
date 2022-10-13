@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "txnrq2NllvcJ9JjJCVWNEBz+wFSW29kJNSvpChXWV5yWHINKFo0JajEiNk5epIpzMjGAJbsdrP13oKG9k1zIPA==",
+  "dgSpecHash": "M/6DGPaXBd52Zz3A/3Ic/iumjT8SAFxhCaIx7VxTzPaB9n494Rxx01nN3nyabfdmyLJwObHxwlyvJz/DE6AePQ==",
   "success": true,
-  "projectFilePath": "Z:\\Appplied Programming\\APPR TASK ONE COMPLETE\\DisasterAlleviationFoundation\\DisasterAlleviationFoundation\\DisasterAlleviationFoundation.csproj",
+  "projectFilePath": "Z:\\Appplied Programming\\REPORI\\DisasterAlleviationFoundation\\DisasterAlleviationFoundation\\DisasterAlleviationFoundation.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\st10128073\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\st10128073\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
