@@ -1,0 +1,244 @@
+﻿@page
+@model DisasterAlleviationFoundation.Pages.IndexModel
+@{
+}
+<head>
+    <link rel="stylesheet" href="~/css/site.css" />
+    <style>
+        body {
+            background-image: url('images/pinkheart.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+
+
+        .navContent {
+            display: inline-block;
+            background-color: mediumorchid;
+            position: sticky;
+            width: 100%;
+            height: 120px;
+        }
+
+            .navContent .brandName {
+                margin-left: 35px;
+                margin-top: 10px;
+                width: 180px;
+                height: 80%;
+            }
+
+                .navContent .brandName .brandLogo {
+                    width: 50%;
+                    height: 100%;
+                    margin-left: -135px;
+                }
+
+            .navContent .links {
+                margin-left: 30%;
+                margin-top: -60px;
+                width: 50px;
+                display: inline;
+            }
+
+        .links ul {
+            width: 950px;
+            margin-left: 40%;
+            margin-top: -85px;
+        }
+
+            .links ul li {
+                display: inline;
+                margin: 35px;
+            }
+
+                .links ul li a,
+                .navContent ul li .heading {
+                    text-decoration: none;
+                    width: 90px;
+                    font-size: 25px;
+                    color: white;
+                }
+
+        .navContent .dropdown-menu {
+            background-color: plum;
+            margin-left: -10px;
+            width: 330px;
+        }
+
+            .navContent .dropdown-menu .dropdown-item {
+                color: white;
+            }
+
+                .links ul li a:hover,
+                .navContent ul li .heading:hover,
+                .navContent .dropdown-menu .dropdown-item:hover {
+                    color: purple;
+                    background-color: transparent;
+                }
+
+
+        .briefContainer h5 {
+            color: #FC6A03;
+            font-size: 20px;
+            font-style: italic;
+            margin-bottom: 10px;
+            margin-left: -15px;
+        }
+
+        .briefContainer p {
+            font-size: 20px;
+            color: black;
+            font-weight: 500;
+            margin: 2%;
+            background-color: snow;
+        }
+
+        .briefContainer font {
+            font-style: italic;
+            text-transform: uppercase;
+            color: purple;
+        }
+
+
+
+        .briefContainer {
+            margin-top: 3%;
+            margin-left: 12%;
+        }
+
+            .briefContainer h1 {
+                color: #FC6A03;
+                font-size: 28px;
+                margin: 20px 0 2px -15px;
+            }
+
+
+        .containerm {
+            min-height: 10vh;
+            overflow: hidden;
+            width: 100%;
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center
+        }
+
+        .image {
+            overflow: hidden;
+            height: 300px;
+            width: 300px;
+            position: relative;
+            cursor: pointer;
+            margin: 0 15px;
+            box-shadow: 0 0 25px 1px rgba(0, 0, 0, .3);
+            transition: .5s;
+            background-color: #555
+        }
+
+            .image:after {
+                content: '';
+                position: absolute;
+                z-index: 1;
+                top: 50%;
+                left: 50%;
+                width: 500px;
+                height: 500px;
+                transform: translate(-140%, -50%);
+                background-color: plum;
+                opacity: 0.8;
+                border-radius: 50%;
+                transition: .8s
+            }
+
+            .image:hover:after {
+                transform: translate(-50%, -50%)
+            }
+
+            .image:hover .btnImg {
+                transform: translate(-50%, -50%) scale(1.3) rotate(20deg)
+            }
+
+        .btnImg {
+            position: absolute;
+            height: 110%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: .8s
+        }
+
+        H3 {
+            position: absolute;
+            z-index: 2;
+            top: 50%;
+            left: 50%;
+            transform: translate(-2000px, -50%);
+            color: darkorange;
+            transition: .5s;
+            transition-timing-function: ease-in
+        }
+
+        .image:hover H3 {
+            transform: translate(-50%, -50%);
+            transition-timing-function: ease
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="briefContainer">
+
+        <h1>DISASTER AVELLIATION FOUNDATION</h1>
+        <h5>Your angels when you are in need</h5>
+        <p class="mb-4">
+            Natural disasters and man-made conflicts are a real and present danger the world-over, very often affecting and displacing hundreds of thousands of people in their wake.
+
+            We are geared to quickly assess emergent disasters and are capable of then using our financial muscle, know-how, access to resources and – when necessary – to draw on additional collaborative expertise to effectively and efficiently respond to both the immediate and longer-term needs of communities impacted by such events.
+
+            We have the wherewithal to negotiate with host country Governments and to link with local organisations on the ground, which boast sound knowledge of the prevailing conditions.
+
+            Be part of the reason why a person in need smiles, Help a hand in need by donating. <font>Thank you!</font>
+        </p>
+
+
+    </div>
+
+
+    <div class="containerm">
+        <div class="row">
+            <div class="col-md-4">
+                <a asp-page="/Log">
+                    <div class="image"> <img class="btnImg" src="~/images/login.jpg" alt=""> <h3>LOGIN</h3></div>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a asp-page="/DonateGoods">
+                    <div class="image"><img class="btnImg" src="~/images/donates.jpg" alt="" style="background-color:orange;" /><h3>GOODS DONATIONS</h3> </div>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a asp-page="/MoneyDonations">
+                    <div class="image"> <img class="btnImg" src="~/images/DONATEMONEY.png" alt="" style="background-color:orange;"> <h3>MONETARY DONATIONS</h3> </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="containerm">
+        <div class="row">
+            <div class="col-md-4">
+                <a asp-page="/DisasterAdd">
+                    <div class="image"><img class="btnImg" src="~/images/disastericon.jpg" alt=""><h3>ADD DISASTER </h3></div>
+                </a>
+            </div>
+        
+           
+        </div>
+    </div>
+
+
+
+
+</body>

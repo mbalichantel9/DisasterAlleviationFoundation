@@ -1,0 +1,103 @@
+﻿@page
+@model DisasterAlleviationFoundation.Pages.ReportModel
+@{
+}
+
+
+
+
+<html>
+
+
+<head>
+    <style>
+        .containerm {
+            min-height: 10vh;
+            overflow: hidden;
+            width: 100%;
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center
+        }
+
+        .categoryContainer {
+            width: 100%;
+            display: table;
+            box-sizing: border-box;
+        }
+
+        .categoryRow {
+            margin-top: 2%;
+            margin-left: 5%;
+            width: 90%;
+        }
+
+        .categoryColumn {
+            background: #b897e2;
+            display: inline-block;
+            font-size: 60%;
+            margin: 10px;
+            height: 150px;
+            width: 20%;
+            height:150px;
+            background-color: transparent;
+            text-align: center;
+            color: black;
+            vertical-align: middle;
+            border-right: 10px solid transparent;
+            border-left: 10px solid transparent;
+        }
+
+            .categoryColumn .borders {
+                color: black;
+                background-color: plum;
+                font-size: 20px;
+                border: none;
+                width: 80%;
+                height: 80%
+            }
+                .categoryColumn .borders a {
+                    color: black;
+                    margin-top:5%;
+                    text-align:center;
+                    text-decoration:none;
+                }
+    </style>
+</head>
+
+<body>
+
+    <div class="containerm">
+        <div class="row">
+            <div class="col-md-6">
+                <a asp-page="/ViewMonetary">
+                    <div style="background-color:orange;"> <h3>  VIEW ALL MONETARY DONATIONS</h3></div>
+                </a>
+            </div>
+            <div class="col-md-6">
+                <a asp-page="/ViewGoods">
+                    <div style="background-color:orange;"><h3>   VIEW ALL GOODS DONATIONS</h3> </div>
+                </a>
+            </div>
+            <div class="col-md-6">
+                <a asp-page="/ViewDisasters">
+                    <div style="background-color:orange;">  <h3>  VIEW DISASTERS</h3> </div>
+                </a>
+            </div>
+            <div class="col-md-6">
+                <a asp-page="/ViewMoney">
+                    <div style="background-color:orange;">  <h3>  VIEW AVAILABLE MONEY</h3> </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+   
+
+
+
+
+
+</body>
+</html>

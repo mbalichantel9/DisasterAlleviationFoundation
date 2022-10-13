@@ -1,0 +1,162 @@
+﻿@page
+@model DisasterAlleviationFoundation.Pages.DonateGoodsModel
+@{
+}
+
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Index</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="~/css/styles.css" />
+    <style>
+        .donationsbody {
+            background-image: url('images/paper.jpeg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .donateimg {
+            width: 350px;
+            height: 350px;
+            margin-left: 85%;
+            margin-top: -49%;
+        }
+
+        .donationsForm {
+            width: 85%;
+            height: 95%;
+            margin-top: 5%;
+            margin-left: 4%;
+            color: black;
+        }
+
+            .donationsForm h2 {
+                margin-left: 1%;
+                margin-bottom: 2%;
+                border-bottom: 3px solid orange;
+                font-size: 35px;
+                width: 700px;
+                padding-left: 30px;
+                letter-spacing: 5px;
+                color: white;
+                font-weight: 400;
+                text-transform: uppercase;
+            }
+
+            .donationsForm label {
+                color: WHITE;
+                font-size: 25px;
+                font-weight: 500;
+            }
+
+            .donationsForm input,
+            .donationsForm .selectgoods,
+            .donationsForm .selectname {
+                width: 70%;
+                outline: none;
+                font-weight: 500;
+                font-size: 25px;
+                background-color: #FDA172;
+                color: white;
+                outline: none;
+                border: 2px solid black;
+            }
+
+            .donationsForm .selectDisaster {
+                width: 70%;
+                outline: none;
+                font-weight: 500;
+                font-size: 25px;
+                background-color: #FDA172;
+                color: white;
+                outline: none;
+                border: 2px solid black;
+            }
+
+            .donationsForm .btn-outline-primary {
+                width: 65%;
+                margin: 15px 0 10px 15px;
+                color: white;
+                border: none;
+                border-radius: 12px;
+                font-size: 20px;
+                background: #FC6A03;
+            }
+    </style>
+</head>
+
+<body class="donationsbody">
+    <form method="post">
+
+
+        <div class="donationsForm">
+
+
+            <h2>Add Goods Donations</h2>
+
+            <div class="branderInfo">
+
+                <br>
+                <label>ENTER GOODS TITLE</label><br>
+                <input type="text" placeholder=" ENTER TITLE OF GOODS TO DONATE" name="goodsTitle" value="@Model.donateGoods.goods_title" required /><br>
+
+
+                <label>ENTER NUMBER OF GOODS</label><br>
+                <input type="text" placeholder=" ENTER NUMBER OF GOODS TO DONATE" name="goodsNo" value="@Model.donateGoods.goods_no" required /><br>
+
+                <label>ENTER DESCRIPTION OF GOODS</label><br>
+                <input placeholder="  ENTER DESCRIPTION OF GOODS" name="goodsDescription" value="@Model.donateGoods.goods_description" required /><br>
+
+                <label>ENTER DONATION DATE</label><br>
+                <input type="date" placeholder="  DONATION DATE" name="goodsDate" value="@Model.donateGoods.goods_date" required /><br>
+
+
+                <label>ENTER GOODS CATEGORY </label><br>
+
+                <div class="selectgoods">
+                    <select id="goodsCategory" name="goodsCategory" class="selectbox" style="background-color:transparent;width:658px;" aria-label="">
+                        <option selected hidden>Select Type of Goods</option>
+                        <option value="Clothes">Clothes</option>
+                        <option value="Non-Perishable Foods">Non-Perishable Foods</option>
+
+                    </select>
+                </div>
+
+
+                <label>SELECT DISASTER TO DONATE TO</label><br>
+                <div class="selectDisaster">
+                    <select id="goodsActivedisaster" name="goodsActivedisaster" style="background-color: #FDA172; width: 658px;">
+                        <option class="activeDisasters" selected>CHOOSE ACTIVE DISASTER TO DONATE TO</option>
+                        <option value="FLOODS">FLOODS</option>
+                        <option value="DRAUGHT">DRAUGHT</option>
+                        <option value="TSUNAMI">TSUNAMI</option>
+                    </select>
+                </div>
+
+
+                <label>ENTER YOUR NAME</label><br>
+                <input type="text" placeholder="  ENTER YOUR NAME(OPTIONAL) " value="@Model.donateGoods.goods_donorname" name="goodsDonorname" /><br>
+
+                <button class="btn-outline-primary" value="Submit">DONATE GOODS</button>
+
+
+            </div>
+        </div>
+    </form>
+    <img class="donateimg" src="~/images/goodsdonations.jpg" />
+    <script>
+        function success() {
+
+            alert("Successfully Donated!");
+
+        }
+    </script>
+</body>
+
+</html>

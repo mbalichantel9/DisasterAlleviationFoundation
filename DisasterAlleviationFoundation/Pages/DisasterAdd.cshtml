@@ -1,0 +1,133 @@
+﻿@page
+@model DisasterAlleviationFoundation.Pages.DisasterAddModel
+@{
+}
+<html>
+
+<head>
+    <title>ADD DIISASTER</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="~/css/styles.css" />
+    <style>
+
+        .donationsbody {
+            background-image: url('images/paper.jpeg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .donateimg {
+            width: 420px;
+            height: 420px;
+            margin-left: 80%;
+            margin-top: -55%;
+        }
+
+        .donationsForm {
+            width: 85%;
+            height: 95%;
+            margin-top: 5%;
+            margin-left: 8%;
+            color: black;
+        }
+
+            .donationsForm h2 {
+                margin-left: 10%;
+                margin-bottom: 2%;
+                border-bottom: 3px solid orange;
+                font-size: 35px;
+                width: 350px;
+                padding-left: 30px;
+                letter-spacing: 5px;
+                color: white;
+                font-weight: 400;
+                text-transform: uppercase;
+            }
+
+            .donationsForm label {
+                color: WHITE;
+                font-size: 25px;
+                font-weight: 500;
+            }
+
+            .donationsForm input,
+            .donationsForm .selectDisaster {
+                width: 70%;
+                outline: none;
+                font-weight: 500;
+                font-size: 25px;
+                background-color: #FDA172;
+                color: white;
+                outline: none;
+                border: 2px solid black;
+            }
+
+            .donationsForm .btn-outline-primary {
+                width: 65%;
+                margin: 15px 0 10px 15px;
+                color: white;
+                border: none;
+                border-radius: 12px;
+                font-size: 20px;
+                background: #FC6A03;
+            }
+    </style>
+</head>
+
+<body class="donationsbody">
+    <form method="post">
+
+        <div class="donationsForm">
+
+            <h2>ADD DISASTER</h2>
+
+
+            <label>ENTER DISASTER NAME</label><br>
+            <input type="text" placeholder=" ENTER DISASTER NAME" name="disasterName" required /><br>
+
+            <label>ENTER DISASTER DESCRIPTION</label><br>
+            <input type="text" placeholder=" ENTER DISASTER DESCRIPTION" name="disasterDescription" /><br>
+
+
+            <label>ENTER START DATE OF DISASTER</label><br>
+            <input type="date" placeholder="  DISASTER START DATE" name="disasterStartDate" required /><br>
+
+            <label>ENTER END DATE OF DISASTER</label><br>
+            <input type="date" placeholder="  DISASTER END DATE" name="disasterEndDate" required /><br>
+
+            <label>ENTER DISASTER STATE</label><br>
+            <div class="selectDisaster">
+                <select name="disasterState" style="background-color: #FDA172; width: 658px;">
+                    <option class="activeDisasters" selected>SELECT DISASTER STATE</option>
+                    <option value="ACTIVE">ACTIVE</option>
+                    <option value="INACTIVE">INACTIVE</option>
+                </select>
+            </div>
+
+            <label>ENTER LOCATION OF DISASTER</label><br>
+            <input type="text" placeholder=" ENTER LOCATION OF DISASTER" name="disasterlocation" required /><br>
+
+            <label>ENTER REQUIRED AIDS FOR DISASTER</label><br>
+            <input type="text" placeholder=" ENTER REQUIRED AIDS FOR DISASTER" name="disasterAids" /><br>
+
+            <button value="Submit" class="btn-outline-primary" >ADD DISASTER</button>
+
+
+        </div>
+    </form>
+    <img class="donateimg" src="~/images/NATDISASTERS.png" />
+
+
+    <script>
+        function success() {
+
+            alert("New Disaster Added!");
+
+        }
+    </script>
+</body>
+
+</html>
+

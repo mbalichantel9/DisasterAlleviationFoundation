@@ -1,0 +1,206 @@
+﻿@page
+@model DisasterAlleviationFoundation.Pages.RegisterModel
+@{
+}
+
+<html>
+
+<head>
+    <title>Register</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="images/TheDiaryLogo.jpg">
+
+    <style>
+
+        body {
+            background-image: url('images/LOGINWALL.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .form {
+        }
+
+
+        .form {
+            width: 50%;
+            height: 650px;
+            background-color: white;
+            margin-top: 10%;
+            margin-left: 23%;
+            border: 2px solid #4c00b0;
+            color: black;
+            box-shadow: 0 0 20px 2px black;
+        }
+
+        h1 {
+            margin-left: 200px;
+            margin-bottom: 12px;
+            margin-bottom: 40px;
+            color: orange;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-weight: 200;
+            letter-spacing: 5px;
+        }
+
+        .inputs {
+            margin: 30px auto;
+            width: 80%;
+            border-bottom: 1px solid black;
+            padding-top: 10px;
+            padding-bottom: 5px;
+            color: black;
+        }
+
+        inputs input {
+            width: 100%;
+            border: none;
+            outline: none;
+            background: transparent;
+            color: orange;
+        }
+
+        .inputs .userName,
+        .inputs .password,
+        .inputs .name,
+        .inputs .userName,
+        .inputs .userType,
+        .inputs .password,
+        .inputs .confirmpassword {
+            outline: none;
+            background: transparent;
+            color: black;
+            width: 200px;
+            border: none;
+        }
+
+
+        ::placeholder {
+            color: black;
+            font-size: 20px;
+        }
+
+        .passwordEye {
+            position: absolute;
+        }
+
+        #showPassword {
+            display: none;
+        }
+
+        .forgotPassword {
+            color: coral;
+            margin-left: 55px;
+        }
+
+            .forgotPassword:hover {
+                color: purple;
+                cursor: pointer;
+                text-decoration: underline;
+            }
+
+
+       
+        .btn-outline-primary {
+            margin: 40px auto 20px;
+            width: 80%;
+            height: 40px;
+            display: block;
+            outline: none;
+            color: black;
+            font-size: 22px;
+            border: 1px solid #4c00b0;
+            border-radius: 25px;
+            background: #e8bcf0;
+        }
+
+         
+            .btn-outline-primary:hover{
+                background-color: darkorchid;
+                color: #e8bcf0;
+                border: 1px solid #e8bcf0;
+            }
+
+        .signup {
+            color: black;
+            font-size: 18px;
+            text-transform: uppercase;
+            margin-left: 55px;
+        }
+
+            .signup a {
+                text-decoration: none;
+                color: coral;
+            }
+
+                .signup a:hover {
+                    text-decoration: underline;
+                    color: purple;
+                }
+    </style>
+</head>
+
+<body>
+
+    <form method="post">
+        <div class="form">
+            <h1> REGISTER</h1>
+            <div class="inputs">
+                <input id="userFirstname" class="name" type="text" name="userFirstname" value="@Model.userRegister.user_firstname" placeholder="Enter Name" required>
+            </div>
+            <div class="inputs">
+                <input id="userName" class="userName" type="email" name="userEmail" placeholder="Enter Email" required>
+            </div>
+            <div class="inputs">
+                <input id="userType" class="userType" type="text" name="userType" placeholder="Enter User Type" required>
+            </div>
+            <div class="inputs">
+                <input id="password" class="password" type="password" name="userPassword" placeholder="Enter Password" required>
+                <span class="passwordEye" onclick="displayPassword()">
+                    <i id="showPassword" class="fa fa-eye"></i>
+                    <i id="hidePassword" class="fa fa-eye-slash"></i>
+                </span>
+            </div>
+            <div class="inputs">
+                <input id="confirmpassword" class="confirmpassword" type="password" name="userConfirmpassword" placeholder="Confirm Password" required>
+                <span class="passwordEye" onclick="displayPassword()">
+                    <i id="showPassword" class="fa fa-eye"></i>
+                    <i id="hidePassword" class="fa fa-eye-slash"></i>
+                </span>
+            </div>
+            <div class="forgotPassword">
+                Forgot Password?
+            </div>
+
+            <button class="btn-outline-primary" value="Submit">REGISTER</button>
+
+            <div class="signup">
+                <h3>Already have an account? <a area="" asp-page="/Log">LOGIN</a></h3>
+
+            </div>
+        </div>
+
+    </form>
+    <script>
+        function clearForm() {
+            document.getElementById(".userFirstname").value = " ";
+            document.getElementById(".userName").value = " ";
+            document.getElementById(".password").value = " ";
+
+        }
+        function success() {
+
+            alert("Successfully Registered!");
+
+
+        }
+
+
+    </script>
+
+</body>
+
+
+</html>
+

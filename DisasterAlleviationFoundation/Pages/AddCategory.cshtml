@@ -1,0 +1,109 @@
+﻿@page
+@model DisasterAlleviationFoundation.Pages.AddCategoryModel
+@{
+}
+
+
+<html>
+
+<head>
+    <title>Index</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="~/css/styles.css" />
+    <style>
+
+
+        .donationsbody {
+            background-image: url('images/paper.jpeg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .donateimg {
+            width: 320px;
+            height: 320px;
+            margin-left: 90%;
+            margin-top: -49%;
+            background-color: #ED7117;
+        }
+
+        .donationsForm {
+            width: 85%;
+            height: 95%;
+            margin-top: 5%;
+            margin-left: 15%;
+            color: black;
+        }
+
+            .donationsForm h2 {
+                margin-left: 8%;
+                margin-bottom: 2%;
+                border-bottom: 3px solid orange;
+                font-size: 35px;
+                width: 550px;
+                padding-left: 30px;
+                letter-spacing: 5px;
+                color: white;
+                font-weight: 400;
+            }
+
+            .donationsForm label {
+                color: WHITE;
+                font-size: 25px;
+                font-weight: 500;
+            }
+
+            .donationsForm input,
+            .donationsForm .selectgoods,
+            .donationsForm .selectname {
+                width: 70%;
+                outline: none;
+                font-weight: 500;
+                font-size: 25px;
+                background-color: #FDA172;
+                color: white;
+                outline: none;
+                border: 2px solid black;
+            }
+
+            .donationsForm .btn-outline-primary {
+                width: 65%;
+                margin: 15px 0 10px 15px;
+                color: white;
+                border: none;
+                border-radius: 12px;
+                font-size: 20px;
+                background: #FC6A03;
+            }
+    </style>
+</head>
+
+<body class="donationsbody">
+    <form method="post">
+
+        <div class="donationsForm">
+
+            <h2>ADD GOODS CATEGORY</h2>
+
+            <label>ENTER GOODS CATEGORY TITLE</label><br>
+            <input type="text" placeholder=" ENTER GOODS CATEGORY" name="categoryName" value="@Model.addCategory.category_name" required /><br>
+
+            <label>ENTER GOODS CATEGORY DESCRIPTION</label><br>
+            <input type="text" placeholder=" ENTER GOODS CATEGORY DESCRIPTION" name="categoryDescription" value="@Model.addCategory.category_description" required /><br>
+
+            <label>ENTER DATE</label><br>
+            <input type="date" placeholder="  DONATION DATE" name="categoryDate" value="@Model.addCategory.category_adddate" required /><br>
+
+            <button class="btn-outline-primary" value="Submit" >ADD CATEGORY</button>
+
+
+        </div>
+    </form>
+    <img class="donateimg" src="~/images/category.png" />
+
+
+</body>
+
+</html>
