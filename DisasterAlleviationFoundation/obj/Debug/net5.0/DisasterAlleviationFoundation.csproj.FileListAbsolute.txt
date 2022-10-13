@@ -567,3 +567,4 @@ Z:\Appplied Programming\REPORI\DisasterAlleviationFoundation\DisasterAlleviation
 Z:\Appplied Programming\REPORI\DisasterAlleviationFoundation\DisasterAlleviationFoundation\obj\Debug\net5.0\ref\DisasterAlleviationFoundation.dll
 Z:\Appplied Programming\REPORI\DisasterAlleviationFoundation\DisasterAlleviationFoundation\obj\Debug\net5.0\DisasterAlleviationFoundation.pdb
 Z:\Appplied Programming\REPORI\DisasterAlleviationFoundation\DisasterAlleviationFoundation\obj\Debug\net5.0\DisasterAlleviationFoundation.genruntimeconfig.cache
+Z:\Appplied Programming\REPORI\DisasterAlleviationFoundation\DisasterAlleviationFoundation\obj\Debug\net5.0\DisasterAlleviationFoundation.csproj.AssemblyReference.cache
