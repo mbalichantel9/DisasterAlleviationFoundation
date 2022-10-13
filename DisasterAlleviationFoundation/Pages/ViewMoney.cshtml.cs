@@ -33,7 +33,7 @@ namespace DisasterAlleviationFoundation.Pages
 
                        PurchaseMoney = (int)command.ExecuteScalar();
 
-                    availableFunds = (AvailableMoney - PurchaseMoney);
+                    availableFunds = AvailableMoney - PurchaseMoney;
          
 
             }
@@ -43,6 +43,15 @@ namespace DisasterAlleviationFoundation.Pages
             }
             return availableFunds;
 
+        }
+
+        public void OnGet()
+        {
+            getMoney();
+
+           
+
+            
         }
     }
 }
