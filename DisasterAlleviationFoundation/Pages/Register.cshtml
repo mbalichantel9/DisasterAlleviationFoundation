@@ -26,7 +26,7 @@
         .form {
             width: 50%;
             height: 650px;
-            background-color: white;
+            background-color: plum;
             margin-top: 10%;
             margin-left: 23%;
             border: 2px solid #4c00b0;
@@ -152,9 +152,15 @@
             <div class="inputs">
                 <input id="userName" class="userName" type="email" name="userEmail" placeholder="Enter Email" required>
             </div>
-            <div class="inputs">
-                <input id="userType" class="userType" type="text" name="userType" placeholder="Enter User Type" required>
+
+            <div class="userType">
+                <select name="userType" style="margin-left:10%;border-bottom:3px solid black; background-color:transparent; width: 435px;">
+                    <option class="activeDisasters" selected>SELECT USER TYPE</option>
+                    <option value="DONOR">DONOR</option>
+                    <option value="ADMIN">ADMIN</option>
+                </select>
             </div>
+            
             <div class="inputs">
                 <input id="password" class="password" type="password" name="userPassword" placeholder="Enter Password" required>
                 <span class="passwordEye" onclick="displayPassword()">

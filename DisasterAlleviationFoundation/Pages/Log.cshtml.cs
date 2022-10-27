@@ -38,7 +38,7 @@ namespace DisasterAlleviationFoundation.Pages
                     {
                         if(user_mail.Equals(readData.GetValue(2)) && user_password.Equals(readData.GetValue(4)))
                         {
-                            if(readData.GetValue(2).Equals("admin1@gmail.com") && readData.GetValue(4).Equals("admin2"))
+                            if(readData.GetValue(3).Equals("ADMIN"))
                             {
                                 Response.Redirect("AdminIndex");
                             }
