@@ -26,7 +26,7 @@
 
 </style>
 
-<h2>VIEW TOTAL AMOUNT AFTER PURCHASES</h2>
+
 <div class="containerm">
     <div class="row">
         <div class="col-md-6">
@@ -51,9 +51,31 @@
         </div>
     </div>
 </div>
+<h2>VIEW TOTAL AMOUNT AFTER PURCHASES</h2>
 <div class="amountBody">
-    <h1>
-        AVAILABLE FUNDS : R 59 500   </h1>
+    
+    <table>
+        <thead>
+
+            <tr>
+                <td>Monetary Donations</td>
+                <td>Purchases Amount</td>
+                <td>Available Money After Purchases</td>
+
+            </tr>
+        </thead>
+            <tbody>
+        
+                <tr>
+                    <td>@Model.AvailableMoney</td>
+                    <td>@Model.PurchaseMoney</td>
+                    <td>@Model.getMoney()</td>
+                </tr>
+            </tbody>
+        
+       
+    </table>
+    
 
 
 </div>

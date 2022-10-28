@@ -13,6 +13,7 @@ namespace DisasterAlleviationFoundation.Pages
         public int AvailableMoney;
         public int PurchaseMoney;
         public int availableFunds;
+        
         public int getMoney()
         {
             try
@@ -26,12 +27,12 @@ namespace DisasterAlleviationFoundation.Pages
                     string commandText = "SELECT SUM(donation_amount) FROM MONETARYDONATIONS ";
                     SqlCommand command = new SqlCommand(commandText, connect);
                     
-                        AvailableMoney = (int)command.ExecuteScalar();
+                    AvailableMoney = (int)command.ExecuteScalar();
 
                     string query = "SELECT SUM(item_amount) FROM PURCHASES ";
                     SqlCommand comandquery = new SqlCommand(query, connect);
 
-                       PurchaseMoney = (int)command.ExecuteScalar();
+                    PurchaseMoney = (int)comandquery.ExecuteScalar();
 
                     availableFunds = AvailableMoney - PurchaseMoney;
          
@@ -49,7 +50,6 @@ namespace DisasterAlleviationFoundation.Pages
         {
             getMoney();
 
-           
 
             
         }

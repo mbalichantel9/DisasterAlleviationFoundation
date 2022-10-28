@@ -11,7 +11,26 @@ namespace DisasterAlleviationFoundation.Pages
     public class ViewGoodsModel : PageModel
     {
         public List<GoodsDonated> donationList = new List<GoodsDonated>();
+        public int noOfGoodsDonated;
 
+        public int countGoods()
+        {
+            string connectionString = "Server=tcp:dafserver1.database.windows.net,1433;Initial Catalog=daf;Persist Security Info=False;User ID=dafserver1;Password=@Happiness2507#;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+            SqlConnection connect = new SqlConnection(connectionString);
+
+
+            connect.Open();
+
+            string commandText = "SELECT COUNT(donation_amount) FROM MONETARYDONATIONS ";
+            SqlCommand command = new SqlCommand(commandText, connect);
+
+            AvailableMoney = (int)command.ExecuteScalar();
+
+
+            return noOfGoodsDonated;
+                
+            
+        }
         public void OnGet()
         {
 

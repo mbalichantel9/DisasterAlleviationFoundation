@@ -58,8 +58,8 @@
         @foreach (var donation in Model.donationList)
         {
             <tr>
-                <td>@donation.id</td> 
-                <td> \t\t @donation.donatedAmount</td>
+                <td>@donation.id</td>
+                <td>@donation.donatedAmount</td>
                 <td>@donation.donatedDate</td>
                 <td>@donation.donatedDisaster</td>
                 <td>@donation.donatedPerson</td>
@@ -69,12 +69,14 @@
 
             </tr>
 
-            <tr>
-                <td>TOTAL MONEY RECEIVED:    <font style="margin-left:70%;">R getMoney()</font></td>
-            </tr>
+
         }
 
-    </tbody>
+        <tr>
+            <td>TOTAL MONEY RECEIVED:    <font>R  </font></td>
+        </tr>
 
+    </tbody>
+   
 
 </table>
