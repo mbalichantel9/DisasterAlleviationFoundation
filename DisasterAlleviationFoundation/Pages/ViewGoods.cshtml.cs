@@ -33,9 +33,10 @@ namespace DisasterAlleviationFoundation.Pages
                                 goods.id = "" + dataReader.GetInt32(0);
                                 goods.goodsTitle = dataReader.GetString(1);
                                 goods.goodsNo = "" + dataReader.GetInt32(2);
-                                goods.goodsDate = dataReader.GetString(3);
-                                goods.goodsCategory = dataReader.GetString(4);
-                                goods.activeDisaster = dataReader.GetString(5);
+                                goods.goodsDescription = dataReader.GetString(3);
+                                goods.goodsDate = dataReader.GetString(4);
+                                goods.goodsCategory = dataReader.GetString(5);
+                            
                                 goods.goodsDonorname = dataReader.GetString(6);
                                 donationList.Add(goods);
 

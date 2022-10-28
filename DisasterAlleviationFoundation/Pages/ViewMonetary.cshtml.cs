@@ -12,6 +12,43 @@ namespace DisasterAlleviationFoundation.Pages
     {
         public List<MoneyDonated> donationList = new List<MoneyDonated>();
 
+
+        public int AvailableMoney;
+        public int PurchaseMoney;
+        public int availableFunds;
+        public int getMoney()
+        {
+            try
+            {
+                string connectionString = "Server=tcp:dafserver1.database.windows.net,1433;Initial Catalog=daf;Persist Security Info=False;User ID=dafserver1;Password=@Happiness2507#;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+                SqlConnection connect = new SqlConnection(connectionString);
+
+
+                connect.Open();
+
+                string commandText = "SELECT SUM(donation_amount) FROM MONETARYDONATIONS ";
+                SqlCommand command = new SqlCommand(commandText, connect);
+
+                AvailableMoney = (int)command.ExecuteScalar();
+
+                string query = "SELECT SUM(item_amount) FROM PURCHASES ";
+                SqlCommand comandquery = new SqlCommand(query, connect);
+
+                PurchaseMoney = (int)command.ExecuteScalar();
+
+                availableFunds = AvailableMoney - PurchaseMoney;
+
+
+            }
+            catch (Exception calException)
+            {
+                Console.WriteLine(calException);
+            }
+            return availableFunds;
+
+        }
+
+
         public void OnGet()
         {
 
@@ -56,6 +93,10 @@ namespace DisasterAlleviationFoundation.Pages
             public string donatedDate;
             public string donatedDisaster;
             public string donatedPerson;
+            public int AvailableMoney;
+            public int PurchaseMoney;
+            public int availableFunds;
+
 
         }
     }

@@ -58,8 +58,8 @@
         @foreach (var donation in Model.donationList)
         {
             <tr>
-                <td>@donation.id</td>
-                <td>@donation.donatedAmount</td>
+                <td>@donation.id</td> 
+                <td> \t\t @donation.donatedAmount</td>
                 <td>@donation.donatedDate</td>
                 <td>@donation.donatedDisaster</td>
                 <td>@donation.donatedPerson</td>
@@ -67,6 +67,10 @@
                 <td><a class="btn btn-primary btn-sm" href="Delete?id=@donation.id">DELETE</a></td>
 
 
+            </tr>
+
+            <tr>
+                <td>TOTAL MONEYY RECCEIVED:    <font>R @donation.availableFunds</font></td>
             </tr>
         }
 
