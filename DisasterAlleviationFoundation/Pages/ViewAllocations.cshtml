@@ -1,19 +1,13 @@
 ﻿@page
-@model DisasterAlleviationFoundation.Pages.ViewMoneyModel
+@model DisasterAlleviationFoundation.Pages.ViewAllocationsModel
 @{
 }
 
-<style>
 
+
+<style>
     body {
         background-color: plum;
-    }
-
-    .amountBody {
-        width: 90%;
-        height: 100px;
-        background-color: coral;
-        margin: 5%;
     }
 
     .containerm {
@@ -26,7 +20,6 @@
         align-items: center
     }
 </style>
-
 <div class="containerm">
     <div class="row">
         <div class="col-md-6">
@@ -51,7 +44,7 @@
         </div>
     </div>
 </div>
-<h2>FUNDS RECORDS</h2>
+<h2>ALLOCATIONS</h2>
 
 
 <div class="container mt-5">
@@ -62,29 +55,43 @@
 
             <table class="table bg-plum rounded border">
                 <thead>
-
-                    <tr style="text-transform:uppercase">
-                        <th>Monetary Donations</th>
-                        <th>Purchases Amount</th>
-                        <th>Available Money After Purchases</th>
-
+                    <tr>
+                        <th>ALLOCATION ID</th>
+                        <th>ALLOCATED GOODS TITLE</th>
+                        <th>ALLOCATION GOODS QTY</th>
+                        <th>ALLOCATED DISASTER</th>
+                      
                     </tr>
                 </thead>
+
                 <tbody>
 
+                    @foreach (var allocations in Model.allocationList)
+                    {
+                        <tr>
+                            <td>@allocations.id</td>
+                            <td>@allocations.goodsAllocationtitle</td>
+                            <td>@allocations.goodsAllocationqty</td>
+                            <td>@allocations.goodAllocationdisaster</td>
+                            
+
+                            <td><a class="btn btn-primary btn-sm" href="Delete?id=@allocations.id">DELETE</a></td>
+
+
+                        </tr>
+
+
+                    }
                     <tr>
-                        <td>@Model.AvailableMoney</td>
-                        <td>@Model.PurchaseMoney</td>
-                        <td style="font-weight:bolder; font-size:150%; text-decoration:underline; margin-top:5%">R @Model.getMoney()</td>
+                        <td>TOTAL GOODS ALLOCATEDT: </td>
+                        <td style="font-weight:bolder; font-size:150%; text-decoration:underline; margin-top:5%"> @Model.getAllocationsTotal()</td>
                     </tr>
+
+
                 </tbody>
 
 
             </table>
-
-
-
         </div>
-
-</div>
+    </div>
 </div>

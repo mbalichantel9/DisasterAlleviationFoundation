@@ -1,19 +1,12 @@
 ﻿@page
-@model DisasterAlleviationFoundation.Pages.ViewMoneyModel
+@model DisasterAlleviationFoundation.Pages.PurchasesViewModel
 @{
 }
 
-<style>
 
+<style>
     body {
         background-color: plum;
-    }
-
-    .amountBody {
-        width: 90%;
-        height: 100px;
-        background-color: coral;
-        margin: 5%;
     }
 
     .containerm {
@@ -26,7 +19,6 @@
         align-items: center
     }
 </style>
-
 <div class="containerm">
     <div class="row">
         <div class="col-md-6">
@@ -51,7 +43,7 @@
         </div>
     </div>
 </div>
-<h2>FUNDS RECORDS</h2>
+<h2>PURCHASES</h2>
 
 
 <div class="container mt-5">
@@ -62,29 +54,48 @@
 
             <table class="table bg-plum rounded border">
                 <thead>
-
-                    <tr style="text-transform:uppercase">
-                        <th>Monetary Donations</th>
-                        <th>Purchases Amount</th>
-                        <th>Available Money After Purchases</th>
-
+                    <tr>
+                        <th>ID</th>
+                        <th>ITEM NAME</th>
+                        <th>ITEM AMOUNT DATE</th>
+                        <th>ITEM CATEGORY</th>
+                        <th>ITEM ALLOCATED DISASTER</th>
+                        <th>ITEM PURCHASE DATE</th>
+                        <th>PURCHASER NAME</th>
                     </tr>
                 </thead>
+
                 <tbody>
 
+                    @foreach (var purchase in Model.purchasesList)
+                    {
+                        <tr>
+                            <td>@purchase.id</td>
+                            <td>@purchase.itemName</td>
+                            <td>@purchase.itemAmount</td>
+                            <td>@purchase.itemCategory</td>
+                            <td>@purchase.itemDisaster</td>
+                            <td>@purchase.itemPurchaseDate</td>
+                            <td>@purchase.itemPurchaserName</td>
+
+                            <td><a class="btn btn-primary btn-sm" href="Delete?id=@purchase.id">DELETE</a></td>
+
+
+                        </tr>
+
+
+                    }
                     <tr>
-                        <td>@Model.AvailableMoney</td>
-                        <td>@Model.PurchaseMoney</td>
-                        <td style="font-weight:bolder; font-size:150%; text-decoration:underline; margin-top:5%">R @Model.getMoney()</td>
+                        <td>TOTAL DONATIONS AMOUNT: </td>
+                        <td style="font-weight:bolder; font-size:150%; text-decoration:underline; margin-top:5%">R</td>
                     </tr>
+
+
                 </tbody>
 
 
             </table>
-
-
-
         </div>
+    </div>
+</div>
 
-</div>
-</div>

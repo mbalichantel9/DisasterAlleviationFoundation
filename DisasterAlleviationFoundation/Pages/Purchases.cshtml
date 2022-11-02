@@ -107,12 +107,20 @@
 
                 </select>
             </div>
-
+            <label>SELECT DISASTER TO DONATE TO</label><br>
+            <div class="selectDisaster">
+                <select name="activeDisaster" style="background-color: #FDA172; width: 658px;">
+                    <option class="activeDisasters" selected>CHOOSE ACTIVE DISASTER TO DONATE TO</option>
+                    <option value="FLOODS">FLOODS</option>
+                    <option value="DRAUGHT">DRAUGHT</option>
+                    <option value="TSUNAMI">TSUNAMI</option>
+                </select>
+            </div>
             <label>PURCHASE DATE</label><br>
             <input type="date" placeholder="  DONATION DATE" name="itemPurchasedate" value="@Model.purchases.item_purchasedate" required /><br>
 
             <label>ENTER YOUR NAME</label><br>
-            <input type="text" placeholder="  ENTER YOUR NAME(OPTIONAL) " name="purchaserName" value="@Model.purchases.purchaser_name"/><br>
+            <input type="text" placeholder="  ENTER YOUR NAME(OPTIONAL) " name="purchaserName" value="@Model.purchases.purchaser_name" /><br>
 
             <button class="btn-outline-primary" value="Submit">PURCHASE GOODS</button>
 

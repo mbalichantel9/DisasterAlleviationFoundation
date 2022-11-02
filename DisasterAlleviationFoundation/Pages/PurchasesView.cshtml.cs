@@ -6,16 +6,17 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Data.SqlClient;
 
+
 namespace DisasterAlleviationFoundation.Pages
 {
-    public class ViewMonetaryModel : PageModel
+    public class PurchasesViewModel : PageModel
     {
-        public List<MoneyDonated> donationList = new List<MoneyDonated>();
-        MoneyDonated moneies = new MoneyDonated();
+        public List<Purchases> purchasesList = new List<Purchases>();
+        Purchases purchaseAmt = new Purchases();
 
-        public int totalDonationsAmount;   
-             
-       public int getTotalDonations()
+        public int totalDonationsAmount;
+
+        public int getTotalDonations()
         {
             try
             {
@@ -25,12 +26,12 @@ namespace DisasterAlleviationFoundation.Pages
 
                 connect.Open();
 
-                string commandText = "SELECT SUM(donation_amount) FROM MONETARYDONATIONS ";
+                string commandText = "SELECT SUM(item_amount) FROM PURCHASES ";
                 SqlCommand command = new SqlCommand(commandText, connect);
 
                 totalDonationsAmount = (int)command.ExecuteScalar();
 
-               
+
 
 
             }
@@ -52,7 +53,7 @@ namespace DisasterAlleviationFoundation.Pages
 
                 {
                     connect.Open();
-                    string commandText = "SELECT * FROM MONETARYDONATIONS";
+                    string commandText = "SELECT * FROM PURCHASES";
                     using (SqlCommand command = new SqlCommand(commandText, connect))
                     {
                         using (SqlDataReader dataReader = command.ExecuteReader())
@@ -61,15 +62,17 @@ namespace DisasterAlleviationFoundation.Pages
 
                             while (dataReader.Read())
                             {
-                                moneies.id = "" + dataReader.GetInt32(0);
-                                moneies.donatedAmount =dataReader.GetInt32(1);
-                                moneies.donatedDate = dataReader.GetString(2);
-                                moneies.donatedDisaster = dataReader.GetString(3);
-                                moneies.donatedPerson = dataReader.GetString(4);                                    
-                                donationList.Add(moneies);
+                                purchaseAmt.id = "" + dataReader.GetInt32(0);
+                                purchaseAmt.itemName = dataReader.GetString(1);
+                                purchaseAmt.itemAmount = dataReader.GetInt32(2);
+                                purchaseAmt.itemCategory = dataReader.GetString(3);
+                                purchaseAmt.itemPurchaseDate = dataReader.GetString(4);
+                                purchaseAmt.itemDisaster = dataReader.GetString(5);
+                                purchaseAmt.itemPurchaserName = dataReader.GetString(6);
+                                purchasesList.Add(purchaseAmt);
 
                             }
-                          
+
 
 
 
@@ -84,19 +87,18 @@ namespace DisasterAlleviationFoundation.Pages
             }
 
         }
-        public class MoneyDonated
+        public class Purchases
         {
             public string id;
-            public int donatedAmount;
-            public string donatedDate;
-            public string donatedDisaster;
-            public string donatedPerson;
-            public int AvailableMoney;
-            public int PurchaseMoney;
-            public int availableFunds;
+            public string itemName;
+            public int itemAmount;
+            public string itemCategory;
+            public string itemPurchaseDate;
+            public string itemDisaster;
+            public string itemPurchaserName;
+
 
 
         }
     }
-    
 }

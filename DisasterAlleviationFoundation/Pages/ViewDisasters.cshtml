@@ -6,6 +6,7 @@
     body {
         background-color: plum;
     }
+
     .containerm {
         min-height: 10vh;
         overflow: hidden;
@@ -15,69 +16,81 @@
         justify-content: center;
         align-items: center
     }
-
 </style>
 <div class="containerm">
     <div class="row">
         <div class="col-md-6">
             <a asp-page="/ViewMonetary">
-                <div style="background-color:orange;"> <h3>  VIEW ALL MONETARY DONATIONS</h3></div>
+                <div style="background-color: coral; color:white;"> <h3>  VIEW ALL MONETARY DONATIONS</h3></div>
             </a>
         </div>
         <div class="col-md-6">
             <a asp-page="/ViewGoods">
-                <div style="background-color:orange;"><h3>   VIEW ALL GOODS DONATIONS</h3> </div>
+                <div style="background-color: coral; color:white;"><h3>   VIEW ALL GOODS DONATIONS</h3> </div>
             </a>
         </div>
         <div class="col-md-6">
             <a asp-page="/ViewDisasters">
-                <div style="background-color:orange;">  <h3>  VIEW DISASTERS</h3> </div>
+                <div style="background-color: coral; color:white;">  <h3>  VIEW DISASTERS</h3> </div>
             </a>
         </div>
         <div class="col-md-6">
             <a asp-page="/ViewMoney">
-                <div style="background-color:orange;">  <h3>  VIEW AVAILABLE MONEY</h3> </div>
+                <div style="background-color: coral; color:white;">  <h3>  VIEW AVAILABLE MONEY</h3> </div>
             </a>
         </div>
     </div>
 </div>
-<h2>VIEW DISASTER</h2>
-<table>
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>DISASTER NAME</th>
-            <th>DISASTER DESCRIPTION</th>
-            <th>DISASTER START DATE</th>
-            <th>DISASTER END DATE</th>
-            <th>DISASTER STATE</th>
-            <th>DISASTER LOCATION</th>
-            <th>DISASTER AIDS</th>
-           
-        </tr>
-    </thead>
-
-    <tbody>
-
-        @foreach (var donation in Model.disastersList)
-        {
-            <tr>
-                <td>@donation.id</td>
-                <td>@donation.disasterName</td>
-                <td>@donation.disasterDesc</td>
-                <td>@donation.disasterStartdate</td>
-                <td>@donation.disasterEnddate</td>
-                <td>@donation.disasterState</td>
-                <td>@donation.disasterLocation</td>
-                <td>@donation.disasterAids</td>
-
-                <td><a class="btn btn-primary btn-sm" href="Delete?id=@donation.id">DELETE</a></td>
+<h2>ACTIVE DISASTERS</h2>
 
 
-            </tr>
-        }
+<div class="container mt-5">
 
-    </tbody>
+    <div class="row">
+
+        <div class="col-md-8 mx-auto">
+
+            <table class="table bg-plum rounded border">
+                
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>DISASTER NAME</th>
+                            <th>DISASTER DESCRIPTION</th>
+                            <th>DISASTER START DATE</th>
+                            <th>DISASTER END DATE</th>
+                            <th>DISASTER STATE</th>
+                            <th>DISASTER LOCATION</th>
+                            <th>DISASTER AIDS</th>
+
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        @foreach (var donation in Model.disastersList)
+                        {
+                            <tr>
+                                <td>@donation.id</td>
+                                <td>@donation.disasterName</td>
+                                <td>@donation.disasterDesc</td>
+                                <td>@donation.disasterStartdate</td>
+                                <td>@donation.disasterEnddate</td>
+                                <td>@donation.disasterState</td>
+                                <td>@donation.disasterLocation</td>
+                                <td>@donation.disasterAids</td>
+
+                                <td><a class="btn btn-primary btn-sm" href="Delete?id=@donation.id">DELETE</a></td>
 
 
-</table>
+                            </tr>
+                        }
+
+                    </tbody>
+
+
+                </table>
+            </div>
+        </div>
+    </div>
+

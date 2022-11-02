@@ -16,6 +16,7 @@ namespace DisasterAlleviationFoundation.Pages
             public string item_title;
             public string item_amount;
             public string item_category;
+            public string item_disaster;
             public string item_purchasedate;
             public string purchaser_name;
 
@@ -26,6 +27,7 @@ namespace DisasterAlleviationFoundation.Pages
             purchases.item_title = Request.Form["itemTitle"];
             purchases.item_amount = Request.Form["itemAmount"];
             purchases.item_category = Request.Form["itemCategory"];
+            purchases.item_disaster = Request.Form["activeDisaster"];
             purchases.item_purchasedate = Request.Form["itemPurchasedate"];
             purchases.purchaser_name = Request.Form["purchaserName"];
            
@@ -37,13 +39,14 @@ namespace DisasterAlleviationFoundation.Pages
                 {
 
                     connect.Open();
-                    string commandText = "INSERT INTO PURCHASES VALUES (@itemTitle,@itemAmount,@itemCategory,@itemPurchasedate,@purchaserName)";
+                    string commandText = "INSERT INTO PURCHASES VALUES (@itemTitle,@itemAmount,@itemCategory,@activeDisaster,@itemPurchasedate,@purchaserName)";
                     using (SqlCommand command = new SqlCommand(commandText, connect))
                     {
 
                         command.Parameters.AddWithValue("@itemTitle", purchases.item_title);
                         command.Parameters.AddWithValue("@itemAmount", purchases.item_amount);
                         command.Parameters.AddWithValue("@itemCategory", purchases.item_category);
+                        command.Parameters.AddWithValue("@activeDisaster", purchases.item_disaster);
                         command.Parameters.AddWithValue("@itemPurchasedate", purchases.item_purchasedate);
                         command.Parameters.AddWithValue("@purchaserName", purchases.purchaser_name);
                    

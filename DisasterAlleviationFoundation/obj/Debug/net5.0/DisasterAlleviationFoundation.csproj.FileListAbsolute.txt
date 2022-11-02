@@ -568,3 +568,5 @@ Z:\Appplied Programming\REPORI\DisasterAlleviationFoundation\DisasterAlleviation
 Z:\Appplied Programming\REPORI\DisasterAlleviationFoundation\DisasterAlleviationFoundation\obj\Debug\net5.0\DisasterAlleviationFoundation.pdb
 Z:\Appplied Programming\REPORI\DisasterAlleviationFoundation\DisasterAlleviationFoundation\obj\Debug\net5.0\DisasterAlleviationFoundation.genruntimeconfig.cache
 Z:\Appplied Programming\REPORI\DisasterAlleviationFoundation\DisasterAlleviationFoundation\obj\Debug\net5.0\DisasterAlleviationFoundation.csproj.AssemblyReference.cache
+Z:\Appplied Programming\REPORI\DisasterAlleviationFoundation\DisasterAlleviationFoundation\obj\Debug\net5.0\Razor\Pages\PurchasesView.cshtml.g.cs
+Z:\Appplied Programming\REPORI\DisasterAlleviationFoundation\DisasterAlleviationFoundation\obj\Debug\net5.0\Razor\Pages\ViewAllocations.cshtml.g.cs

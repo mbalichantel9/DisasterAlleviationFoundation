@@ -8,14 +8,14 @@ using Microsoft.Data.SqlClient;
 
 namespace DisasterAlleviationFoundation.Pages
 {
-    public class ViewMonetaryModel : PageModel
+    public class ViewAllocationsModel : PageModel
     {
-        public List<MoneyDonated> donationList = new List<MoneyDonated>();
-        MoneyDonated moneies = new MoneyDonated();
+        public List<Allocations> allocationList = new List<Allocations>();
+        Allocations allocated = new Allocations();
 
-        public int totalDonationsAmount;   
-             
-       public int getTotalDonations()
+        public int allocatedGoodsQty;
+
+        public int getAllocationsTotal()
         {
             try
             {
@@ -25,12 +25,12 @@ namespace DisasterAlleviationFoundation.Pages
 
                 connect.Open();
 
-                string commandText = "SELECT SUM(donation_amount) FROM MONETARYDONATIONS ";
+                string commandText = "SELECT SUM(goods_allocationqty) FROM ALLOCATIONS";
                 SqlCommand command = new SqlCommand(commandText, connect);
 
-                totalDonationsAmount = (int)command.ExecuteScalar();
+                allocatedGoodsQty = (int)command.ExecuteScalar();
 
-               
+
 
 
             }
@@ -38,7 +38,7 @@ namespace DisasterAlleviationFoundation.Pages
             {
                 Console.WriteLine(calException);
             }
-            return totalDonationsAmount;
+            return allocatedGoodsQty;
 
         }
 
@@ -52,7 +52,7 @@ namespace DisasterAlleviationFoundation.Pages
 
                 {
                     connect.Open();
-                    string commandText = "SELECT * FROM MONETARYDONATIONS";
+                    string commandText = "SELECT * FROM ALLOCATIONS";
                     using (SqlCommand command = new SqlCommand(commandText, connect))
                     {
                         using (SqlDataReader dataReader = command.ExecuteReader())
@@ -61,15 +61,15 @@ namespace DisasterAlleviationFoundation.Pages
 
                             while (dataReader.Read())
                             {
-                                moneies.id = "" + dataReader.GetInt32(0);
-                                moneies.donatedAmount =dataReader.GetInt32(1);
-                                moneies.donatedDate = dataReader.GetString(2);
-                                moneies.donatedDisaster = dataReader.GetString(3);
-                                moneies.donatedPerson = dataReader.GetString(4);                                    
-                                donationList.Add(moneies);
+                                allocated.id = "" + dataReader.GetInt32(0);
+                                allocated.goodsAllocationtitle = dataReader.GetString(1);
+                                allocated.goodsAllocationqty = "" + dataReader.GetInt32(2);
+                                allocated.goodAllocationdisaster = dataReader.GetString(5);
+                                
+                                allocationList.Add(allocated);
 
                             }
-                          
+
 
 
 
@@ -84,19 +84,15 @@ namespace DisasterAlleviationFoundation.Pages
             }
 
         }
-        public class MoneyDonated
+        public class Allocations
         {
             public string id;
-            public int donatedAmount;
-            public string donatedDate;
-            public string donatedDisaster;
-            public string donatedPerson;
-            public int AvailableMoney;
-            public int PurchaseMoney;
-            public int availableFunds;
+            public string goodsAllocationtitle;
+            public int goodsAllocationqty;
+            public string goodAllocationdisaster;
 
-
+        
         }
     }
-    
 }
+

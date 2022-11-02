@@ -17,27 +17,33 @@
         justify-content: center;
         align-items: center
     }
+   
+    .btns:hover{
+        text-decoration:none;
+        background-color:white;
+        color:orange;
+    }
 </style>
 <div class="containerm">
     <div class="row">
         <div class="col-md-6">
             <a asp-page="/ViewMonetary">
-                <div style="background-color:orange;"> <h3>  VIEW ALL MONETARY DONATIONS</h3></div>
+                <div style="background-color: coral; color:white;"> <h3>  VIEW ALL MONETARY DONATIONS</h3></div>
             </a>
         </div>
         <div class="col-md-6">
             <a asp-page="/ViewGoods">
-                <div style="background-color:orange;"><h3>   VIEW ALL GOODS DONATIONS</h3> </div>
+                <div style="background-color: coral; color:white;"><h3>   VIEW ALL GOODS DONATIONS</h3> </div>
             </a>
         </div>
         <div class="col-md-6">
             <a asp-page="/ViewDisasters">
-                <div style="background-color:orange;">  <h3>  VIEW DISASTERS</h3> </div>
+                <div style="background-color: coral; color:white;">  <h3>  VIEW DISASTERS</h3> </div>
             </a>
         </div>
         <div class="col-md-6">
             <a asp-page="/ViewMoney">
-                <div style="background-color:orange;">  <h3>  VIEW AVAILABLE MONEY</h3> </div>
+                <div style="background-color: coral; color:white;">  <h3>  VIEW AVAILABLE MONEY</h3> </div>
             </a>
         </div>
     </div>
@@ -85,7 +91,7 @@
                     }
                     <tr>
                         <td>TOTAL NUMBER OF DONATIONS: </td>
-                        <td style="font-weight:bolder; font-size:150%; text-decoration:underline; margin-top:3%">@Model.countGoods()</td> 
+                        <td style="font-weight:bolder; font-size:150%; text-decoration:underline; margin-top:5%">@Model.countGoods()</td> 
                     </tr>
 
                 </tbody>

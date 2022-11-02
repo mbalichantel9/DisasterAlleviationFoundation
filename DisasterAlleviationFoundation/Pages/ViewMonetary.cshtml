@@ -6,6 +6,7 @@
     body {
         background-color: plum;
     }
+
     .containerm {
         min-height: 10vh;
         overflow: hidden;
@@ -16,65 +17,78 @@
         align-items: center
     }
 </style>
-
 <div class="containerm">
     <div class="row">
         <div class="col-md-6">
             <a asp-page="/ViewMonetary">
-                <div style="background-color:orange;"> <h3>  VIEW ALL MONETARY DONATIONS</h3></div>
+                <div style="background-color: coral; color:white;"> <h3>  VIEW ALL MONETARY DONATIONS</h3></div>
             </a>
         </div>
         <div class="col-md-6">
             <a asp-page="/ViewGoods">
-                <div style="background-color:orange;"><h3>   VIEW ALL GOODS DONATIONS</h3> </div>
+                <div style="background-color: coral; color:white;"><h3>   VIEW ALL GOODS DONATIONS</h3> </div>
             </a>
         </div>
         <div class="col-md-6">
             <a asp-page="/ViewDisasters">
-                <div style="background-color:orange;">  <h3>  VIEW DISASTERS</h3> </div>
+                <div style="background-color: coral; color:white;">  <h3>  VIEW DISASTERS</h3> </div>
             </a>
         </div>
         <div class="col-md-6">
             <a asp-page="/ViewMoney">
-                <div style="background-color:orange;">  <h3>  VIEW AVAILABLE MONEY</h3> </div>
+                <div style="background-color: coral; color:white;">  <h3>  VIEW AVAILABLE MONEY</h3> </div>
             </a>
         </div>
     </div>
 </div>
-<h2>VIEW MONEY DONATIONS</h2>
-<table>
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>DONATION AMOUNT</th>
-            <th>DONATION DATE</th>
-            <th>DONATED DISASTER</th>
-            <th>DONOR NAME</th>
-        </tr>
-    </thead>
-
-    <tbody>
-
-        @foreach (var donation in Model.donationList)
-        {
-            <tr>
-                <td>@donation.id</td>
-                <td>@donation.donatedAmount</td>
-                <td>@donation.donatedDate</td>
-                <td>@donation.donatedDisaster</td>
-                <td>@donation.donatedPerson</td>
-
-                <td><a class="btn btn-primary btn-sm" href="Delete?id=@donation.id">DELETE</a></td>
+<h2>MONEY DONATIONS</h2>
 
 
-            </tr>
+<div class="container mt-5">
+
+    <div class="row">
+
+        <div class="col-md-8 mx-auto">
+
+            <table class="table bg-plum rounded border">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>DONATION AMOUNT</th>
+                        <th>DONATION DATE</th>
+                        <th>DONATED DISASTER</th>
+                        <th>DONOR NAME</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    @foreach (var donation in Model.donationList)
+                    {
+                        <tr>
+                            <td>@donation.id</td>
+                            <td>@donation.donatedAmount</td>
+                            <td>@donation.donatedDate</td>
+                            <td>@donation.donatedDisaster</td>
+                            <td>@donation.donatedPerson</td>
+
+                            <td><a class="btn btn-primary btn-sm" href="Delete?id=@donation.id">DELETE</a></td>
 
 
-        }
+                        </tr>
 
-       
 
-    </tbody>
-   
+                    }
+                    <tr>
+                        <td>TOTAL DONATIONS AMOUNT: </td>
+                        <td style="font-weight:bolder; font-size:150%; text-decoration:underline; margin-top:5%">R @Model.getTotalDonations()</td>
+                    </tr>
 
-</table>
+
+                </tbody>
+
+
+            </table>
+            </div>
+        </div>
+    </div>
