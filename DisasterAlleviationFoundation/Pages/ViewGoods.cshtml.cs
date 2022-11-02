@@ -21,10 +21,10 @@ namespace DisasterAlleviationFoundation.Pages
 
             connect.Open();
 
-            string commandText = "SELECT COUNT(donation_amount) FROM MONETARYDONATIONS ";
+            string commandText = "SELECT SUM(goods_no) FROM GOODSDONATIONS ";
             SqlCommand command = new SqlCommand(commandText, connect);
 
-            AvailableMoney = (int)command.ExecuteScalar();
+            noOfGoodsDonated = (int)command.ExecuteScalar();
 
 
             return noOfGoodsDonated;

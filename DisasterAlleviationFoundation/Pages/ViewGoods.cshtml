@@ -7,7 +7,7 @@
     body {
         background-color: plum;
     }
-  
+
     .containerm {
         min-height: 10vh;
         overflow: hidden;
@@ -17,7 +17,6 @@
         justify-content: center;
         align-items: center
     }
-
 </style>
 <div class="containerm">
     <div class="row">
@@ -43,44 +42,60 @@
         </div>
     </div>
 </div>
-<h2>VIEW GOODS </h2>
-<table>
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>GOOODS TITLE</th>
-            <th>GOOODS QUANTITY</th>
-            <th>GOOODS DESCRIPTION</th>
-            <th>GOOODS DATE</th>
-            <th>GOOODS CATEGORY</th>
-            <th>GOOODS DONOR NAME</th>
-        </tr>
-    </thead>
-
-    <tbody>
-
-        @foreach (var donation in Model.donationList)
-        {
-            <tr>
-                <td>@donation.id</td>
-                <td>@donation.goodsTitle</td>
-                <td>@donation.goodsNo</td>
-                <td>@donation.goodsDescription</td>
-                <td>@donation.goodsDate</td>
-                <td>@donation.goodsCategory</td>
-            
-                <td>@donation.goodsDonorname</td>
-
-                <td><a class="btn btn-primary btn-sm" href="Delete?id=@donation.id">DELETE</a></td>
+<h2>GOODS DONATED</h2>
 
 
-            </tr>
-        }
-        <tr>
+<div class="container mt-5">
 
-        </tr>
+    <div class="row">
 
-    </tbody>
+        <div class="col-md-8 mx-auto">
+
+            <table class="table bg-plum rounded border">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>GOODS TITLE</th>
+                        <th>GOODS QUANTITY</th>
+                        <th>GOODS DESCRIPTION</th>
+                        <th>GOODS DATE</th>
+                        <th>GOODS CATEGORY</th>
+                        <th>GOODS DONOR NAME</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    @foreach (var donation in Model.donationList)
+                    {
+                        <tr>
+                            <td>@donation.id</td>
+                            <td>@donation.goodsTitle</td>
+                            <td>@donation.goodsNo</td>
+                            <td>@donation.goodsDescription</td>
+                            <td>@donation.goodsDate</td>
+                            <td>@donation.goodsCategory</td>
+
+                            <td>@donation.goodsDonorname</td>
+
+                            <td><a class="btn btn-primary btn-sm" href="Delete?id=@donation.id">DELETE</a></td>
 
 
-</table>
+                        </tr>
+                    }
+                    <tr>
+                        <td>TOTAL NUMBER OF DONATIONS: </td>
+                        <td style="font-weight:bolder; font-size:150%; text-decoration:underline; margin-top:3%">@Model.countGoods()</td> 
+                    </tr>
+
+                </tbody>
+
+
+            </table>
+        </div>
+
+    </div>
+
+
+</div>
+
