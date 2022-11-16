@@ -18,7 +18,6 @@ namespace DisasterAlleviationFoundation.Pages
             string connectionString = "Server=tcp:dafserver1.database.windows.net,1433;Initial Catalog=daf;Persist Security Info=False;User ID=dafserver1;Password=@Happiness2507#;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
             SqlConnection connect = new SqlConnection(connectionString);
 
-
             connect.Open();
 
             string commandText = "SELECT SUM(goods_no) FROM GOODSDONATIONS ";
@@ -31,6 +30,8 @@ namespace DisasterAlleviationFoundation.Pages
                 
             
         }
+
+       
         public void OnGet()
         {
 
@@ -67,7 +68,6 @@ namespace DisasterAlleviationFoundation.Pages
             }
             catch (Exception listError)
             {
-                Console.WriteLine(listError);
             }
         }
 

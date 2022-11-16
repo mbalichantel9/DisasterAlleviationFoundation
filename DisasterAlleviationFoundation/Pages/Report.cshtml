@@ -1,76 +1,116 @@
 ﻿@page
 @model DisasterAlleviationFoundation.Pages.ReportModel
-@{
+@{ Layout = null;
 }
 
 
 
 
 <html>
-
-
 <head>
-    <style>
-        body{
-            background-color:plum;
-        }
+<link rel="stylesheet" href="~/css/site.css" />
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="~/css/styles.css" />
+<style>
+    body {
+        background-color: plum;
+    }
 
-        .containerm {
-            min-height: 10vh;
-            overflow: hidden;
-            width: 100%;
-            padding: 2rem;
-            display: flex;
-            justify-content: center;
-            align-items: center
-        }
+    .containerm {
+        min-height: 10vh;
+        overflow: hidden;
+        width: 100%;
+        padding: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center
+    }
 
-        .categoryContainer {
-            width: 100%;
-            display: table;
-            box-sizing: border-box;
-        }
+    .categoryContainer {
+        width: 100%;
+        display: table;
+        box-sizing: border-box;
+    }
 
-        .categoryRow {
-            margin-top: 2%;
-            margin-left: 5%;
-            width: 90%;
-        }
+    .categoryRow {
+        margin-top: 2%;
+        margin-left: 5%;
+        width: 90%;
+    }
 
-        .categoryColumn {
-            background: #b897e2;
-            display: inline-block;
-            font-size: 60%;
-            margin: 10px;
-            height: 150px;
-            width: 20%;
-            height:150px;
-            background-color: transparent;
-            text-align: center;
+    .categoryColumn {
+        background: #b897e2;
+        display: inline-block;
+        font-size: 60%;
+        margin: 10px;
+        height: 150px;
+        width: 20%;
+        height: 150px;
+        background-color: transparent;
+        text-align: center;
+        color: black;
+        vertical-align: middle;
+        border-right: 10px solid transparent;
+        border-left: 10px solid transparent;
+    }
+
+        .categoryColumn .borders {
             color: black;
-            vertical-align: middle;
-            border-right: 10px solid transparent;
-            border-left: 10px solid transparent;
+            background-color: plum;
+            font-size: 20px;
+            border: none;
+            width: 80%;
+            height: 80%
         }
 
-            .categoryColumn .borders {
+            .categoryColumn .borders a {
                 color: black;
-                background-color: plum;
-                font-size: 20px;
-                border: none;
-                width: 80%;
-                height: 80%
+                margin-top: 5%;
+                text-align: center;
+                text-decoration: none;
             }
-                .categoryColumn .borders a {
-                    color: black;
-                    margin-top:5%;
-                    text-align:center;
-                    text-decoration:none;
-                }
-    </style>
+</style>
 </head>
 
 <body>
+
+    <header>
+        <nav>
+            <div class="navContent">
+                <div class="brandName">
+                    <img class="brandLogo" src="~/images/logo.png" />
+                </div>
+                <div class="links">
+
+                    <ul>
+
+                        <li>
+                            <a asp-area="" asp-page="/AdminIndex"> HOME     </a>
+                        </li>
+
+                        <li>
+
+                            <a asp-area="" asp-page="/Purchases"> PURCHASE GOODS      </a>
+                        </li>
+                        <li>
+
+                            <a asp-area="" asp-page="/AllocateGoods"> ALLOCATE GOODS      </a>
+                        </li>
+                        <li>
+
+                            <a asp-area="" asp-page="/Report"> REPORTS      </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </nav>
+
+    </header>
+
 
     <h2>REPORTS</h2>
     <div class="containerm">

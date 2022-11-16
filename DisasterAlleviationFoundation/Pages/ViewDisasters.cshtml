@@ -1,22 +1,70 @@
 ﻿@page
 @model DisasterAlleviationFoundation.Pages.ViewDisastersModel
-@{
+@{ Layout = null;
 }
-<style>
-    body {
-        background-color: plum;
-    }
 
-    .containerm {
-        min-height: 10vh;
-        overflow: hidden;
-        width: 100%;
-        padding: 2rem;
-        display: flex;
-        justify-content: center;
-        align-items: center
-    }
-</style>
+<head>
+
+
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/styles.css" />
+
+    <style>
+        body {
+            background-color: plum;
+        }
+
+        .containerm {
+            min-height: 10vh;
+            overflow: hidden;
+            width: 100%;
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center
+        }
+    </style>
+
+</head>
+
+<header>
+    <nav>
+        <div class="navContent">
+            <div class="brandName">
+                <img class="brandLogo" src="~/images/logo.png" />
+            </div>
+            <div class="links">
+
+                <ul>
+
+                    <li>
+                        <a asp-area="" asp-page="/AdminIndex"> HOME     </a>
+                    </li>
+
+                    <li>
+
+                        <a asp-area="" asp-page="/Purchases"> PURCHASE GOODS      </a>
+                    </li>
+                    <li>
+
+                        <a asp-area="" asp-page="/AllocateGoods"> ALLOCATE GOODS      </a>
+                    </li>
+                    <li>
+
+                        <a asp-area="" asp-page="/Report"> REPORTS      </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+</header>
+
 <div class="containerm">
     <div class="row">
         <div class="col-md-6">
@@ -39,6 +87,17 @@
                 <div style="background-color: coral; color:white;">  <h3>  VIEW AVAILABLE MONEY</h3> </div>
             </a>
         </div>
+        <div class="col-md-6">
+            <a asp-page="/PurchasesView">
+                <div style="background-color: coral; color:white;">  <h3>  VIEW PURCHASES</h3> </div>
+            </a>
+        </div>
+
+        <div class="col-md-6">
+            <a asp-page="/ViewAllocations">
+                <div style="background-color: coral; color:white;">  <h3>  VIEW ALLOCATIONS</h3> </div>
+            </a>
+        </div>
     </div>
 </div>
 <h2>ACTIVE DISASTERS</h2>
@@ -51,46 +110,45 @@
         <div class="col-md-8 mx-auto">
 
             <table class="table bg-plum rounded border">
-                
-                    <thead>
+
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>DISASTER NAME</th>
+                        <th>DISASTER DESCRIPTION</th>
+                        <th>DISASTER START DATE</th>
+                        <th>DISASTER END DATE</th>
+                        <th>DISASTER STATE</th>
+                        <th>DISASTER LOCATION</th>
+                        <th>DISASTER AIDS</th>
+
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    @foreach (var donation in Model.disastersList)
+                    {
                         <tr>
-                            <th>ID</th>
-                            <th>DISASTER NAME</th>
-                            <th>DISASTER DESCRIPTION</th>
-                            <th>DISASTER START DATE</th>
-                            <th>DISASTER END DATE</th>
-                            <th>DISASTER STATE</th>
-                            <th>DISASTER LOCATION</th>
-                            <th>DISASTER AIDS</th>
+                            <td>@donation.id</td>
+                            <td>@donation.disasterName</td>
+                            <td>@donation.disasterDesc</td>
+                            <td>@donation.disasterStartdate</td>
+                            <td>@donation.disasterEnddate</td>
+                            <td>@donation.disasterState</td>
+                            <td>@donation.disasterLocation</td>
+                            <td>@donation.disasterAids</td>
+
+
 
                         </tr>
-                    </thead>
+                    }
 
-                    <tbody>
-
-                        @foreach (var donation in Model.disastersList)
-                        {
-                            <tr>
-                                <td>@donation.id</td>
-                                <td>@donation.disasterName</td>
-                                <td>@donation.disasterDesc</td>
-                                <td>@donation.disasterStartdate</td>
-                                <td>@donation.disasterEnddate</td>
-                                <td>@donation.disasterState</td>
-                                <td>@donation.disasterLocation</td>
-                                <td>@donation.disasterAids</td>
-
-                                <td><a class="btn btn-primary btn-sm" href="Delete?id=@donation.id">DELETE</a></td>
+                </tbody>
 
 
-                            </tr>
-                        }
-
-                    </tbody>
-
-
-                </table>
-            </div>
+            </table>
         </div>
     </div>
+</div>
 

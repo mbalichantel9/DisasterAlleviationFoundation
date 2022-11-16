@@ -146,6 +146,7 @@
     <form method="post">
         <div class="form">
             <h1> REGISTER</h1>
+       
             <div class="inputs">
                 <input id="userFirstname" class="name" type="text" name="userFirstname" value="@Model.userRegister.user_firstname" placeholder="Enter Name" required>
             </div>
@@ -179,7 +180,7 @@
                 Forgot Password?
             </div>
 
-            <button class="btn-outline-primary" value="Submit">REGISTER</button>
+            <button class="btn-outline-primary" value="Submit" onclick="sucess()">REGISTER</button>
 
             <div class="signup">
                 <h3>Already have an account? <a area="" asp-page="/Log">LOGIN</a></h3>

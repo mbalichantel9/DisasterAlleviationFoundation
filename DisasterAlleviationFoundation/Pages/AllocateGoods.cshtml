@@ -1,6 +1,6 @@
 ﻿@page
 @model DisasterAlleviationFoundation.Pages.AllocateGoodsModel
-@{
+@{ Layout = null;
 }
 
 <html>
@@ -10,6 +10,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="stylesheet" href="~/css/styles.css" />
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/styles.css" />
     <style>
 
@@ -23,8 +26,8 @@
         .donateimg {
             width: 320px;
             height: 320px;
-            margin-left: 90%;
-            margin-top: -49%;
+            margin-left: 70%;
+            margin-top: -42%;
             background-color: #ED7117;
         }
 
@@ -57,7 +60,7 @@
             .donationsForm input,
             .donationsForm .selectgoods,
             .donationsForm .selectname {
-                width: 70%;
+                width: 40%;
                 outline: none;
                 font-weight: 500;
                 font-size: 25px;
@@ -68,7 +71,7 @@
             }
 
             .donationsForm .btn-outline-primary {
-                width: 65%;
+                width: 40%;
                 margin: 15px 0 10px 15px;
                 color: white;
                 border: none;
@@ -79,7 +82,47 @@
     </style>
 </head>
 
+
+
 <body class="donationsbody">
+
+    <header>
+        <nav>
+            <div class="navContent">
+                <div class="brandName">
+                    <img class="brandLogo" src="~/images/logo.png" />
+                </div>
+                <div class="links">
+
+                    <ul>
+
+                        <li>
+                            <a asp-area="" asp-page="/AdminIndex"> HOME     </a>
+                        </li>
+
+                        <li>
+
+                            <a asp-area="" asp-page="/Purchases"> PURCHASE GOODS      </a>
+                        </li>
+                        <li>
+
+                            <a asp-area="" asp-page="/AllocateGoods"> ALLOCATE GOODS      </a>
+                        </li>
+                        <li>
+
+                            <a asp-area="" asp-page="/Report"> REPORTS      </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </nav>
+
+    </header>
+
     <form method="post">
 
         <div class="donationsForm">
@@ -129,7 +172,7 @@
     </form>
     <img class="donateimg" src="~/images/goodspurchase.jfif" />
 
- 
+
 
 </body>
 

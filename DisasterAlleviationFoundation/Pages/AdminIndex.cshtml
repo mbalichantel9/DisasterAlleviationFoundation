@@ -1,10 +1,12 @@
 ﻿@page
 @model DisasterAlleviationFoundation.Pages.AdminIndexModel
-@{
+@{ Layout = null;
 }
 
 <head>
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/styles.css" />
     <style>
         body {
             background-image: url('images/pinkheart.jpg');
@@ -189,12 +191,47 @@
 
 <body>
 
-   
 
+    <header>
+        <nav>
+            <div class="navContent">
+                <div class="brandName">
+                    <img class="brandLogo" src="~/images/logo.png" />
+                </div>
+                <div class="links">
+
+                    <ul>
+
+                        <li>
+                            <a asp-area="" asp-page="/AdminIndex"> HOME     </a>
+                        </li>
+                                            
+                        <li>
+
+                            <a asp-area="" asp-page="/Purchases"> PURCHASE GOODS      </a>
+                        </li>
+                        <li>
+
+                            <a asp-area="" asp-page="/AllocateGoods"> ALLOCATE GOODS      </a>
+                        </li>
+                        <li>
+
+                            <a asp-area="" asp-page="/Report"> REPORTS      </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </nav>
+
+    </header>
 
     <div class="containerm">
         <div class="row">
-           
+
             <div class="col-md-6">
                 <a asp-page="/AddCategory">
                     <div class="image"><img class="btnImg" src="~/images/category.png" alt="" style="background-color:orange;"> <h3>ADD GOODS CATEGORY</h3> </div>
@@ -204,7 +241,7 @@
                 <a asp-page="/Purchases">
                     <div class="image"><img class="btnImg" src="~/images/donates.jpg" alt="" style="background-color:orange;" /><h3>PURCHASE</h3> </div>
                 </a>
-               
+
             </div>
         </div>
     </div>

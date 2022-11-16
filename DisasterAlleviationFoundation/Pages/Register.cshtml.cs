@@ -41,6 +41,7 @@ namespace DisasterAlleviationFoundation.Pages
                 {
 
                     connect.Open();
+                   
                     string commandText = "INSERT INTO USERS VALUES (@userFirstname,@userEmail,@userType,@userPassword,@userConfirmpassword);";
                     using (SqlCommand command = new SqlCommand(commandText, connect))
                     {

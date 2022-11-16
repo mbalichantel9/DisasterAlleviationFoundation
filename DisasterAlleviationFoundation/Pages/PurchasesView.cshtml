@@ -1,7 +1,14 @@
 ﻿@page
 @model DisasterAlleviationFoundation.Pages.PurchasesViewModel
-@{
+@{ Layout = null;
 }
+
+<head>
+
+
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/styles.css" />
 
 
 <style>
@@ -19,6 +26,45 @@
         align-items: center
     }
 </style>
+
+</head>
+<header>
+    <nav>
+        <div class="navContent">
+            <div class="brandName">
+                <img class="brandLogo" src="~/images/logo.png" />
+            </div>
+            <div class="links">
+
+                <ul>
+
+                    <li>
+                        <a asp-area="" asp-page="/AdminIndex"> HOME     </a>
+                    </li>
+
+                    <li>
+
+                        <a asp-area="" asp-page="/Purchases"> PURCHASE GOODS      </a>
+                    </li>
+                    <li>
+
+                        <a asp-area="" asp-page="/AllocateGoods"> ALLOCATE GOODS      </a>
+                    </li>
+                    <li>
+
+                        <a asp-area="" asp-page="/Report"> REPORTS      </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+</header>
+
 <div class="containerm">
     <div class="row">
         <div class="col-md-6">
@@ -39,6 +85,17 @@
         <div class="col-md-6">
             <a asp-page="/ViewMoney">
                 <div style="background-color: coral; color:white;">  <h3>  VIEW AVAILABLE MONEY</h3> </div>
+            </a>
+        </div>
+        <div class="col-md-6">
+            <a asp-page="/PurchasesView">
+                <div style="background-color: coral; color:white;">  <h3>  VIEW PURCHASES</h3> </div>
+            </a>
+        </div>
+
+        <div class="col-md-6">
+            <a asp-page="/ViewAllocations">
+                <div style="background-color: coral; color:white;">  <h3>  VIEW ALLOCATIONS</h3> </div>
             </a>
         </div>
     </div>
@@ -67,18 +124,16 @@
 
                 <tbody>
 
-                    @foreach (var purchase in Model.purchasesList)
+                    @foreach (var products in Model.purchasesList)
                     {
                         <tr>
-                            <td>@purchase.id</td>
-                            <td>@purchase.itemName</td>
-                            <td>@purchase.itemAmount</td>
-                            <td>@purchase.itemCategory</td>
-                            <td>@purchase.itemDisaster</td>
-                            <td>@purchase.itemPurchaseDate</td>
-                            <td>@purchase.itemPurchaserName</td>
-
-                            <td><a class="btn btn-primary btn-sm" href="Delete?id=@purchase.id">DELETE</a></td>
+                            <td>@products.id</td>
+                            <td>@products.itemTitle</td>
+                            <td>@products.itemAmount</td>
+                            <td>@products.itemCategory</td>
+                            <td>@products.itemDisaster</td>
+                            <td>@products.itemPurchaseDate</td>
+                            <td>@products.itemPurchaser</td>
 
 
                         </tr>
@@ -87,7 +142,7 @@
                     }
                     <tr>
                         <td>TOTAL DONATIONS AMOUNT: </td>
-                        <td style="font-weight:bolder; font-size:150%; text-decoration:underline; margin-top:5%">R</td>
+                        <td style="font-weight:bolder; font-size:150%; text-decoration:underline; margin-top:5%">R @Model.getTotalPurchases()</td>
                     </tr>
 
 

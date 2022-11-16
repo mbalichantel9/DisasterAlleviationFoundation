@@ -10,8 +10,9 @@ namespace DisasterAlleviationFoundation.Pages
 {
     public class ViewMonetaryModel : PageModel
     {
-        public List<MoneyDonated> donationList = new List<MoneyDonated>();
-        MoneyDonated moneies = new MoneyDonated();
+        string connectionString = "Server=tcp:dafserver1.database.windows.net,1433;Initial Catalog=daf;Persist Security Info=False;User ID=dafserver1;Password=@Happiness2507#;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+
+        public List<MoneyDonated> moneyDonationList = new List<MoneyDonated>();
 
         public int totalDonationsAmount;   
              
@@ -19,18 +20,14 @@ namespace DisasterAlleviationFoundation.Pages
         {
             try
             {
-                string connectionString = "Server=tcp:dafserver1.database.windows.net,1433;Initial Catalog=daf;Persist Security Info=False;User ID=dafserver1;Password=@Happiness2507#;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
                 SqlConnection connect = new SqlConnection(connectionString);
-
 
                 connect.Open();
 
                 string commandText = "SELECT SUM(donation_amount) FROM MONETARYDONATIONS ";
                 SqlCommand command = new SqlCommand(commandText, connect);
 
-                totalDonationsAmount = (int)command.ExecuteScalar();
-
-               
+                totalDonationsAmount = (int)command.ExecuteScalar(); 
 
 
             }
@@ -47,7 +44,6 @@ namespace DisasterAlleviationFoundation.Pages
 
             try
             {
-                string connectionString = "Server=tcp:dafserver1.database.windows.net,1433;Initial Catalog=daf;Persist Security Info=False;User ID=dafserver1;Password=@Happiness2507#;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
                 using (SqlConnection connect = new SqlConnection(connectionString))
 
                 {
@@ -58,15 +54,17 @@ namespace DisasterAlleviationFoundation.Pages
                         using (SqlDataReader dataReader = command.ExecuteReader())
                         {
 
-
                             while (dataReader.Read())
                             {
-                                moneies.id = "" + dataReader.GetInt32(0);
-                                moneies.donatedAmount =dataReader.GetInt32(1);
-                                moneies.donatedDate = dataReader.GetString(2);
-                                moneies.donatedDisaster = dataReader.GetString(3);
-                                moneies.donatedPerson = dataReader.GetString(4);                                    
-                                donationList.Add(moneies);
+                                MoneyDonated myMoney = new MoneyDonated();
+
+                                myMoney.id = "" + dataReader.GetInt32(0);
+                                myMoney.donatedAmount = "" + dataReader.GetInt32(1);
+                                myMoney.donatedDate = dataReader.GetString(2);
+                                myMoney.donatedDisaster = dataReader.GetString(3);
+                                myMoney.donatedPerson = dataReader.GetString(4);
+
+                                moneyDonationList.Add(myMoney);
 
                             }
                           
@@ -87,13 +85,11 @@ namespace DisasterAlleviationFoundation.Pages
         public class MoneyDonated
         {
             public string id;
-            public int donatedAmount;
+            public string donatedAmount;
             public string donatedDate;
             public string donatedDisaster;
             public string donatedPerson;
-            public int AvailableMoney;
-            public int PurchaseMoney;
-            public int availableFunds;
+          
 
 
         }

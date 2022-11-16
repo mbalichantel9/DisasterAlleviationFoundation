@@ -1,25 +1,78 @@
 ﻿@page
 @model DisasterAlleviationFoundation.Pages.ViewAllocationsModel
-@{
+@{ Layout = null;
 }
 
 
 
-<style>
-    body {
-        background-color: plum;
-    }
+<head>
 
-    .containerm {
-        min-height: 10vh;
-        overflow: hidden;
-        width: 100%;
-        padding: 2rem;
-        display: flex;
-        justify-content: center;
-        align-items: center
-    }
-</style>
+
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/styles.css" />
+
+    <style>
+        body {
+            background-color: plum;
+        }
+
+        .containerm {
+            min-height: 10vh;
+            overflow: hidden;
+            width: 100%;
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center
+        }
+
+        .btns:hover {
+            text-decoration: none;
+            background-color: white;
+            color: orange;
+        }
+    </style>
+</head>
+
+
+<header>
+    <nav>
+        <div class="navContent">
+            <div class="brandName">
+                <img class="brandLogo" src="~/images/logo.png" />
+            </div>
+            <div class="links">
+
+                <ul>
+
+                    <li>
+                        <a asp-area="" asp-page="/AdminIndex"> HOME     </a>
+                    </li>
+
+                    <li>
+
+                        <a asp-area="" asp-page="/Purchases"> PURCHASE GOODS      </a>
+                    </li>
+                    <li>
+
+                        <a asp-area="" asp-page="/AllocateGoods"> ALLOCATE GOODS      </a>
+                    </li>
+                    <li>
+
+                        <a asp-area="" asp-page="/Report"> REPORTS      </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+</header>
+
 <div class="containerm">
     <div class="row">
         <div class="col-md-6">
@@ -42,8 +95,20 @@
                 <div style="background-color: coral; color:white;">  <h3>  VIEW AVAILABLE MONEY</h3> </div>
             </a>
         </div>
+        <div class="col-md-6">
+            <a asp-page="/PurchasesView">
+                <div style="background-color: coral; color:white;">  <h3>  VIEW PURCHASES</h3> </div>
+            </a>
+        </div>
+
+        <div class="col-md-6">
+            <a asp-page="/ViewAllocations">
+                <div style="background-color: coral; color:white;">  <h3>  VIEW ALLOCATIONS</h3> </div>
+            </a>
+        </div>
     </div>
 </div>
+
 <h2>ALLOCATIONS</h2>
 
 
@@ -59,23 +124,27 @@
                         <th>ALLOCATION ID</th>
                         <th>ALLOCATED GOODS TITLE</th>
                         <th>ALLOCATION GOODS QTY</th>
+                        <th>ALLOCATED GOODS CATEGORY</th>
+                        <th>ALLOCATION DATE</th>
                         <th>ALLOCATED DISASTER</th>
-                      
+                        <th>ALLOCATOR NAME</th>
+
+
                     </tr>
                 </thead>
 
                 <tbody>
 
-                    @foreach (var allocations in Model.allocationList)
+                    @foreach (var view in Model.allocationList)
                     {
                         <tr>
-                            <td>@allocations.id</td>
-                            <td>@allocations.goodsAllocationtitle</td>
-                            <td>@allocations.goodsAllocationqty</td>
-                            <td>@allocations.goodAllocationdisaster</td>
-                            
-
-                            <td><a class="btn btn-primary btn-sm" href="Delete?id=@allocations.id">DELETE</a></td>
+                            <td>@view.id</td>
+                            <td>@view.goodsAllocationtitle</td>
+                            <td>@view.goodsAllocationqty</td>
+                            <td>@view.goodsAllocationcategory</td>
+                            <td>@view.goodsAllocationdate</td>
+                            <td>@view.goodAllocationdisaster</td>
+                            <td>@view.goodsAllocationdonor</td>
 
 
                         </tr>
